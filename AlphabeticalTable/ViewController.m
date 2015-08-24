@@ -31,10 +31,9 @@
     tableview_.dataSource=self;
     tableview_.delegate=self;
     
-   // arrayOfSections=[[NSMutableArray alloc]init];
+   
     arraySorted=[[NSMutableArray alloc]init];
-    NSMutableArray *arrayListing=[[NSMutableArray alloc]init];
-    
+
      [arraySorted removeAllObjects];
     
     for (int i=0; i< arrayOfSections.count; i++) {
@@ -81,24 +80,24 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    //return arrayOfSections;
+   
      return [arraySorted valueForKey:@"headerTitle"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString*)title atIndex:(NSInteger)index
 {
-    //return index;
+   
     return [arraySorted valueForKey:@"headerTitle"];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    //return [arrayOfSections objectAtIndex:section];
+   
     return [[arraySorted objectAtIndex:section] objectForKey:@"headerTitle"];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
  
      return [[[arraySorted objectAtIndex:section] objectForKey:@"headerValue"] count] ;
-    //return arrayOfObjects.count;
+  
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
